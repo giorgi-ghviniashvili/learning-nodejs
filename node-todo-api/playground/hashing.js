@@ -1,9 +1,9 @@
 // sha 256
 // const {SHA256} = require('crypto-js')
-// const jwt = require('jsonwebtoken')
-const bcrypt = require('bcryptjs')
+const jwt = require('jsonwebtoken')
+// const bcrypt = require('bcryptjs')
 
-var password = 'abc123!'
+// var password = 'abc123!'
 
 // bcrypt.genSalt(10, (err, salt) => {
 //   bcrypt.hash(password, salt, (err, hash) => {
@@ -12,11 +12,11 @@ var password = 'abc123!'
 //   })
 // })
 
-var hashedPassword = '$2a$10$oqNsEZymYpHUz7ZUWbasmeZ/WkIrcTQb8dKzF9sUNnBtrrKRaQx7y';
+// var hashedPassword = '$2a$10$oqNsEZymYpHUz7ZUWbasmeZ/WkIrcTQb8dKzF9sUNnBtrrKRaQx7y';
 
-bcrypt.compare(password, hashedPassword, (err, res) => {
-  console.log(res);
-});
+// bcrypt.compare(password, hashedPassword, (err, res) => {
+//   console.log(res);
+// });
 
 
 // var message = 'Hey, I am an new user.'
@@ -24,12 +24,13 @@ bcrypt.compare(password, hashedPassword, (err, res) => {
 
 // console.log(hash);
 
-// var data = {
-//   id: 10
-// }
+var data = {
+  id: 10,
+  access: 'auth'
+}
 
-// var token = jwt.sign(data, '123abc')
-// console.log(token)
+var token = jwt.sign(JSON.stringify(data), '123abc')
+console.log(token)
 
 // var varify = jwt.verify(token, '123abc')
 // console.log(varify);
